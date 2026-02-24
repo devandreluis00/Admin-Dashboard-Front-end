@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+    background-color: #34495e;
+}
+
+#toggleSidebar {
+    margin-top: auto;
+    padding: 10px;
+    background: #34495e;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.main {
+    flex: 1;
+    background-color: #ecf0f1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header h1 {
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.actions .filters select {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.actions button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #2980b9;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.actions button:hover {
+    background-color: #3498db;
+}
+
+.list-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#reportList {
+    list-style: none;
+}
+
+#reportList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#reportList li:hover {
+    transform: translateY(-2px);
+}
+
+#reportList li .info {
+    max-width: 80%;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+#reportList li .info::-webkit-scrollbar {
+    width: 6px;
+}
+
+#reportList li .info::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+#reportList li p {
+    word-wrap: break-word;
+    margin-bottom: 5px;
+}
+
+#reportList li .actions-btns button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.editBtn {
+    background-color: #27ae60;
+}
+
+.editBtn:hover {
+    background-color: #2ecc71;
+}
+
+.deleteBtn {
+    background-color: #c0392b;
+}
+
+.deleteBtn:hover {
+    background-color: #e74c3c;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 400px;
+    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.closeBtn,
+.closeViewBtn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.closeBtn:hover,
+.closeViewBtn:hover {
+    color: #000;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal-content textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #2980b9;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #3498db;
+}
+
+.view-content-vertical {
+    width: 95%;
+    max-width: 1000px;
+    height: 90vh;
+    padding: 30px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.view-content-vertical h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.view-content-vertical p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#viewDescriptionWrapper {
+    flex: 1;
+    overflow-y: auto;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#viewDescriptionWrapper p {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+#exportPDF {
+    margin-top: 15px;
+    align-self: flex-start;
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #c0392b;
+    color: #fff;
+    cursor: pointer;
+}
+
+#exportPDF:hover {
+    background-color: #e74c3c;
+}
+
+#reportList li[data-type="Financeiro"] {
+    border-left: 6px solid #f1c40f;
+}
+
+#reportList li[data-type="Vendas"] {
+    border-left: 6px solid #e67e22;
+}
+
+#reportList li[data-type="Marketing"] {
+    border-left: 6px solid #8e44ad;
+}
+
+#reportList li[data-type="Outro"] {
+    border-left: 6px solid #7f8c8d;
+}
+
+.confirm-modal-content {
+    width: 400px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+.confirm-modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #c0392b;
+}
+
+.confirm-modal-content p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirm-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.confirm-buttons .cancelBtn {
+    background-color: #7f8c8d;
+    color: #fff;
+}
+
+.confirm-buttons .cancelBtn:hover {
+    background-color: #95a5a6;
+}
+
+.confirm-buttons .deleteBtn {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.confirm-buttons .deleteBtn:hover {
+    background-color: #e74c3c;
+}
+
+.closeConfirmBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.closeConfirmBtn:hover {
+    color: #000;
+}

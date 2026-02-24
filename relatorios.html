@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Relatórios Avançados - Dashboard</title>
+  <link rel="stylesheet" href="css/relatorios.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <h2>Admin</h2>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="colaboradores.html">Colaboradores</a>
+        <a href="relatorios.html" class="active">Relatórios</a>
+        <a href="vendas.html">Vendas</a>
+      </nav>
+      <button id="toggleSidebar">☰</button>
+    </aside>
+
+    <main class="main">
+      <header class="header">
+        <h1>Relatórios Avançados</h1>
+      </header>
+
+      <section class="actions">
+        <div class="filters">
+          <select id="filterType">
+            <option value="Todos">Todos os Tipos</option>
+            <option value="Financeiro">Financeiro</option>
+            <option value="Vendas">Vendas</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Outro">Outro</option>
+          </select>
+
+          <select id="sortDate">
+            <option value="desc">Mais Recentes</option>
+            <option value="asc">Mais Antigos</option>
+          </select>
+        </div>
+        <button id="addReportBtn"><i class="fas fa-plus"></i> Novo Relatório</button>
+      </section>
+
+      <section class="list-section">
+        <ul id="reportList"></ul>
+      </section>
+    </main>
+  </div>
+
+  <div id="reportModal" class="modal">
+    <div class="modal-content">
+      <span class="closeBtn">&times;</span>
+      <h2 id="modalTitle">Novo Relatório</h2>
+      <form id="reportForm">
+        <input type="text" id="reportTitle" placeholder="Título" required>
+        <textarea id="reportDescription" placeholder="Descrição" required></textarea>
+        <select id="reportType" required>
+          <option value="">Selecione o tipo</option>
+          <option value="Financeiro">Financeiro</option>
+          <option value="Vendas">Vendas</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <input type="date" id="reportDate" required>
+        <button type="submit">Salvar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="viewModal" class="modal">
+    <div class="modal-content view-content-vertical">
+      <span class="closeViewBtn">&times;</span>
+      <h2 id="viewTitle"></h2>
+      <p id="viewTypeDate"></p>
+      <div id="viewDescriptionWrapper">
+        <p id="viewDescription"></p>
+      </div>
+      <button id="exportPDF"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
+    </div>
+  </div>
+
+  <div id="confirmModal" class="modal">
+    <div class="modal-content confirm-modal-content">
+      <span class="closeConfirmBtn">&times;</span>
+      <h2>Excluir Relatório</h2>
+      <p>Tem certeza que deseja excluir este relatório? Esta ação não pode ser desfeita.</p>
+      <div class="confirm-buttons">
+        <button id="cancelDelete" class="cancelBtn">Cancelar</button>
+        <button id="confirmDelete" class="deleteBtn">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/relatorios.js"></script>
+</body>
+
+</html>

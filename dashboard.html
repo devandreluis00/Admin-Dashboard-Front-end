@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <h2>Admin</h2>
+      <nav>
+        <a href="#">Dashboard</a>
+        <a href="colaboradores.html">Colaboradores</a>
+        <a href="relatorios.html">Relatórios</a>
+        <a href="vendas.html">Vendas</a>
+      </nav>
+      <button id="toggleSidebar">☰</button>
+    </aside>
+
+    <main class="main">
+      <header class="header">
+        <h1>Dashboard</h1>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <h3>Colaboradores</h3>
+          <p id="users">0</p>
+        </div>
+        <div class="card">
+          <h3>Vendas</h3>
+          <p id="sales">0</p>
+        </div>
+        <div class="card">
+          <h3>Visitas</h3>
+          <p id="visits">0</p>
+        </div>
+      </section>
+
+      <section class="charts">
+        <div class="chart">
+          <h2>Visitas da Semana</h2>
+          <canvas id="visitsChart"></canvas>
+        </div>
+        <div class="chart">
+          <h2>Vendas da Semana</h2>
+          <canvas id="salesChart"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
